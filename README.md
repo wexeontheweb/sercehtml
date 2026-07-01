@@ -16,4 +16,4 @@ Kod aplikacji, która pokazuje na początku *"Ej bo ogólnie..."*. a po kilku se
 
 ## 📸 Podgląd
 
-![Podgląd animacji](https://wexe-exe.xyz/przyklad.sercehtml.gif)
+![Podgląd animacji](./przyklad.sercehtml.gif)
