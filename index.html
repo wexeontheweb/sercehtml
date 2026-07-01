@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #000000;
+    color: #ffffff;
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+#intro {
+    position: absolute;
+    font-size: 2rem;
+    animation: hideIntro 3.5s forwards;
+}
+
+#heart {
+    width: 380px;
+    height: 380px;
+    color: #ff3366;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.1;
+    text-align: justify;
+    word-break: break-all;
+    opacity: 0;
+    -webkit-mask-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48cGF0aCBmaWxsPSJibGFjayIgZD0iTTQ2Mi4zIDYyLjZDNDA3LjUgMTUuOSAzMjYgMjQuMyAyNzUuNyA3Ni4yTDI1NiA5Ni41bC0xOS43LTIwLjNDMTg2LjEgMjQuMyAxMDQuNSAxNS45IDQ5LjcgNjIuNmMtNjIuOCA1My42LTY2LjEgMTQ5LjgtOS45IDIwNy45bDE5My41IDE5OS44YzEyLjUgMTIuOSAzMi44IDEyLjkgNDUuMyAwbDE5My41LTE5OS44YzU2LjMtNTguMSA1My0xNTQuMy05LjgtMjA3Ljl6Ii8+PC9zdmc+');
+    -webkit-mask-size: 100% 100%;
+    -webkit-mask-repeat: no-repeat;
+    mask-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48cGF0aCBmaWxsPSJibGFjayIgZD0iTTQ2Mi4zIDYyLjZDNDA3LjUgMTUuOSAzMjYgMjQuMyAyNzUuNyA3Ni4yTDI1NiA5Ni41bC0xOS43LTIwLjNDMTg2LjEgMjQuMyAxMDQuNSAxNS45IDQ5LjcgNjIuNmMtNjIuOCA1My42LTY2LjEgMTQ5LjgtOS45IDIwNy45bDE5My41IDE5OS44YzEyLjUgMTIuOSAzMi44IDEyLjkgNDUuMyAwbDE5My41LTE5OS44YzU2LjMtNTguMSA1My0xNTQuMy05LjgtMjA3Ljl6Ii8+PC9zdmc+');
+    mask-size: 100% 100%;
+    mask-repeat: no-repeat;
+    animation: showHeart 0.5s 3.5s forwards;
+}
+
+@keyframes hideIntro {
+    0% { opacity: 0; transform: scale(0.9); }
+    20% { opacity: 1; transform: scale(1); }
+    80% { opacity: 1; transform: scale(1); }
+    100% { opacity: 0; transform: scale(1.1); visibility: hidden; }
+}
+
+@keyframes showHeart {
+    to { opacity: 1; }
+}
+
+@keyframes beat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.06); }
+}
+</style>
+</head>
+<body>
+
+<div id="intro">Ej bo ogólnie...</div>
+<div id="heart"></div>
+
+<script>
+    const heart = document.getElementById('heart');
+    const text = "Kocham cię ";
+    const totalWords = 450;
+    const duration = 5000;
+    const intervalTime = duration / totalWords;
+    let count = 0;
+
+    setTimeout(() => {
+        const interval = setInterval(() => {
+            heart.innerText += text;
+            count++;
+            
+            if (count >= totalWords) {
+                clearInterval(interval);
+                heart.style.animation = "showHeart 0s forwards, beat 1.2s infinite ease-in-out";
+            }
+        }, intervalTime);
+    }, 4000);
+</script>
+
+</body>
+</html>
